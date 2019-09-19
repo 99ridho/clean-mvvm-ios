@@ -9,6 +9,10 @@
 import Foundation
 
 final class Observable<Value> {
+    enum Event<Value> {
+        case next(Value)
+    }
+    
     struct ObserverContainer<Value> {
         weak var observer: AnyObject?
         let queue: DispatchQueue
@@ -17,41 +21,31 @@ final class Observable<Value> {
     
     private var observers: [ObserverContainer<Value>] = []
     
-    private var value: Value {
+    private var event: Event<Value>? {
         didSet {
             notifyObservers()
         }
     }
     
-    init(value: Value) {
-        self.value = value
-    }
-    
-    func observe(
-        on observer: AnyObject,
-        queue: DispatchQueue = .main,
-        handler: @escaping ((Value) -> Void)
-    ) {
+    func observe(on observer: AnyObject, queue: DispatchQueue = .main, handler: @escaping ((Value) -> Void)) {
         let observer = ObserverContainer(observer: observer, queue: queue, handler: handler)
         observers.append(observer)
-        
-        queue.async {
-            handler(self.value)
-        }
     }
     
     func remove(observer: AnyObject) {
         observers = observers.filter { $0.observer !== observer }
     }
     
-    func emit(_ value: Value) {
-        self.value = value
+    func emit(_ event: Event<Value>) {
+        self.event = event
     }
     
     private func notifyObservers() {
         for observer in observers {
             observer.queue.async {
-                observer.handler(self.value)
+                if case let .some(.next(value)) = self.event {
+                    observer.handler(value)
+                }
             }
         }
     }
