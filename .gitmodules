@@ -1,0 +1,3 @@
+[submodule "CleanMVVM/Libs/NetworkKit"]
+	path = CleanMVVM/Libs/NetworkKit
+	url = https://github.com/99ridho/NetworkKit.git
