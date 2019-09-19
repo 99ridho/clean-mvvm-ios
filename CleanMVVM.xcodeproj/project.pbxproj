@@ -20,6 +20,7 @@
 		E5DD2AED23333130001CD7A4 /* ContactDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DD2AEC23333130001CD7A4 /* ContactDataProvider.swift */; };
 		E5DD2AF023333263001CD7A4 /* NetworkContactDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DD2AEF23333263001CD7A4 /* NetworkContactDataProvider.swift */; };
 		E5DD2AF3233334C0001CD7A4 /* ContactUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DD2AF2233334C0001CD7A4 /* ContactUseCase.swift */; };
+		E5DD2AF72333679F001CD7A4 /* ContactListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DD2AF62333679F001CD7A4 /* ContactListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		E5DD2AEC23333130001CD7A4 /* ContactDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDataProvider.swift; sourceTree = "<group>"; };
 		E5DD2AEF23333263001CD7A4 /* NetworkContactDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkContactDataProvider.swift; sourceTree = "<group>"; };
 		E5DD2AF2233334C0001CD7A4 /* ContactUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUseCase.swift; sourceTree = "<group>"; };
+		E5DD2AF62333679F001CD7A4 /* ContactListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +196,7 @@
 		E5DD2AE123332E62001CD7A4 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				E5DD2AF42333674B001CD7A4 /* ContactList */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -229,6 +232,22 @@
 				E5DD2AF2233334C0001CD7A4 /* ContactUseCase.swift */,
 			);
 			path = UseCase;
+			sourceTree = "<group>";
+		};
+		E5DD2AF42333674B001CD7A4 /* ContactList */ = {
+			isa = PBXGroup;
+			children = (
+				E5DD2AF52333676D001CD7A4 /* ViewModel */,
+			);
+			path = ContactList;
+			sourceTree = "<group>";
+		};
+		E5DD2AF52333676D001CD7A4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E5DD2AF62333679F001CD7A4 /* ContactListViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,6 +349,7 @@
 				E5DD2AE323332E91001CD7A4 /* Contact.swift in Sources */,
 				E5DD2AE823332F6A001CD7A4 /* ContactRequest.swift in Sources */,
 				E5DD2AF023333263001CD7A4 /* NetworkContactDataProvider.swift in Sources */,
+				E5DD2AF72333679F001CD7A4 /* ContactListViewModel.swift in Sources */,
 				E5DD2AB123332BCA001CD7A4 /* AppDelegate.swift in Sources */,
 				E5DD2AB323332BCA001CD7A4 /* SceneDelegate.swift in Sources */,
 				E5DD2AF3233334C0001CD7A4 /* ContactUseCase.swift in Sources */,
