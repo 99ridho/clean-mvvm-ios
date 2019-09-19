@@ -9,7 +9,7 @@
 import Foundation
 
 protocol ContactUseCaseProtocol {
-    func fetchAllContacts(completion: (([Contact]) -> Void)?)
+    func fetchAllContacts(onSuccess: (([Contact]) -> Void)?, onError: ((Error) -> Void)?)
     func fetchContact(byID id: Int, onSuccess: ((Contact) -> Void)?, onError: ((Error) -> Void)?)
 }
 
@@ -31,13 +31,13 @@ class ContactUseCase: ContactUseCaseProtocol {
         self.dataProvider = dataProvider
     }
     
-    func fetchAllContacts(completion: (([Contact]) -> Void)?) {
+    func fetchAllContacts(onSuccess: (([Contact]) -> Void)?, onError: ((Error) -> Void)?) {
         dataProvider.fetchAll { (result) in
             switch result {
             case let .success(contacts):
-                completion?(contacts)
-            default:
-                return
+                onSuccess?(contacts)
+            case let .failure(error):
+                onError?(error)
             }
         }
     }
