@@ -1,5 +1,5 @@
 //
-//  ContactDataProvider.swift
+//  ContactRepository.swift
 //  CleanMVVM
 //
 //  Created by Ridho Pratama on 19/09/19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol ContactDataProviderProtocol {
+protocol ContactRepositoryProtocol {
     func fetchAll(completion: @escaping (Result<[Contact], Error>) -> Void)
-    func fetch(predicate: @escaping (Contact) -> Bool, completion: @escaping (Result<[Contact], Error>) -> Void)
+    func fetch(criteria: @escaping (Contact) -> Bool, completion: @escaping (Result<[Contact], Error>) -> Void)
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E5038F6D2334B90C00488E02 /* NetworkContactRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5038F6C2334B90C00488E02 /* NetworkContactRepository.swift */; };
 		E5DD2AB123332BCA001CD7A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DD2AB023332BCA001CD7A4 /* AppDelegate.swift */; };
 		E5DD2AB323332BCA001CD7A4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DD2AB223332BCA001CD7A4 /* SceneDelegate.swift */; };
 		E5DD2ABA23332BCB001CD7A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5DD2AB923332BCB001CD7A4 /* Assets.xcassets */; };
@@ -17,8 +18,7 @@
 		E5DD2AE623332EAF001CD7A4 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DD2AE523332EAF001CD7A4 /* Observable.swift */; };
 		E5DD2AE823332F6A001CD7A4 /* ContactRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DD2AE723332F6A001CD7A4 /* ContactRequest.swift */; };
 		E5DD2AEB23332FD8001CD7A4 /* URL+ExpressibleStringLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DD2AEA23332FD8001CD7A4 /* URL+ExpressibleStringLiteral.swift */; };
-		E5DD2AED23333130001CD7A4 /* ContactDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DD2AEC23333130001CD7A4 /* ContactDataProvider.swift */; };
-		E5DD2AF023333263001CD7A4 /* NetworkContactDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DD2AEF23333263001CD7A4 /* NetworkContactDataProvider.swift */; };
+		E5DD2AED23333130001CD7A4 /* ContactRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DD2AEC23333130001CD7A4 /* ContactRepository.swift */; };
 		E5DD2AF3233334C0001CD7A4 /* ContactUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DD2AF2233334C0001CD7A4 /* ContactUseCase.swift */; };
 		E5DD2AF72333679F001CD7A4 /* ContactListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DD2AF62333679F001CD7A4 /* ContactListViewModel.swift */; };
 		E5DD2AFA233473C5001CD7A4 /* ContactListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DD2AF9233473C5001CD7A4 /* ContactListTableViewCell.swift */; };
@@ -57,6 +57,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E5038F6C2334B90C00488E02 /* NetworkContactRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkContactRepository.swift; sourceTree = "<group>"; };
 		E5DD2AAD23332BCA001CD7A4 /* CleanMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5DD2AB023332BCA001CD7A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5DD2AB223332BCA001CD7A4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,8 +69,7 @@
 		E5DD2AE523332EAF001CD7A4 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		E5DD2AE723332F6A001CD7A4 /* ContactRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactRequest.swift; sourceTree = "<group>"; };
 		E5DD2AEA23332FD8001CD7A4 /* URL+ExpressibleStringLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+ExpressibleStringLiteral.swift"; sourceTree = "<group>"; };
-		E5DD2AEC23333130001CD7A4 /* ContactDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDataProvider.swift; sourceTree = "<group>"; };
-		E5DD2AEF23333263001CD7A4 /* NetworkContactDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkContactDataProvider.swift; sourceTree = "<group>"; };
+		E5DD2AEC23333130001CD7A4 /* ContactRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactRepository.swift; sourceTree = "<group>"; };
 		E5DD2AF2233334C0001CD7A4 /* ContactUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUseCase.swift; sourceTree = "<group>"; };
 		E5DD2AF62333679F001CD7A4 /* ContactListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewModel.swift; sourceTree = "<group>"; };
 		E5DD2AF9233473C5001CD7A4 /* ContactListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListTableViewCell.swift; sourceTree = "<group>"; };
@@ -191,7 +191,7 @@
 		E5DD2AE023332E3C001CD7A4 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				E5DD2AEE2333324B001CD7A4 /* DataProvider */,
+				E5DD2AEE2333324B001CD7A4 /* Repository */,
 				E5DD2AE723332F6A001CD7A4 /* ContactRequest.swift */,
 			);
 			path = Service;
@@ -221,13 +221,13 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		E5DD2AEE2333324B001CD7A4 /* DataProvider */ = {
+		E5DD2AEE2333324B001CD7A4 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				E5DD2AEC23333130001CD7A4 /* ContactDataProvider.swift */,
-				E5DD2AEF23333263001CD7A4 /* NetworkContactDataProvider.swift */,
+				E5038F6C2334B90C00488E02 /* NetworkContactRepository.swift */,
+				E5DD2AEC23333130001CD7A4 /* ContactRepository.swift */,
 			);
-			path = DataProvider;
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		E5DD2AF1233334A1001CD7A4 /* UseCase */ = {
@@ -362,14 +362,14 @@
 				E5DD2AE623332EAF001CD7A4 /* Observable.swift in Sources */,
 				E5DD2AE323332E91001CD7A4 /* Contact.swift in Sources */,
 				E5DD2AE823332F6A001CD7A4 /* ContactRequest.swift in Sources */,
-				E5DD2AF023333263001CD7A4 /* NetworkContactDataProvider.swift in Sources */,
 				E5DD2AFC23347872001CD7A4 /* ContactListViewController.swift in Sources */,
 				E5DD2AF72333679F001CD7A4 /* ContactListViewModel.swift in Sources */,
 				E5DD2AB123332BCA001CD7A4 /* AppDelegate.swift in Sources */,
+				E5038F6D2334B90C00488E02 /* NetworkContactRepository.swift in Sources */,
 				E5DD2AFA233473C5001CD7A4 /* ContactListTableViewCell.swift in Sources */,
 				E5DD2AB323332BCA001CD7A4 /* SceneDelegate.swift in Sources */,
 				E5DD2AF3233334C0001CD7A4 /* ContactUseCase.swift in Sources */,
-				E5DD2AED23333130001CD7A4 /* ContactDataProvider.swift in Sources */,
+				E5DD2AED23333130001CD7A4 /* ContactRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

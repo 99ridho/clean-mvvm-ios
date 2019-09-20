@@ -1,5 +1,5 @@
 //
-//  NetworkContactDataProvider.swift
+//  NetworkContactRepository.swift
 //  CleanMVVM
 //
 //  Created by Ridho Pratama on 19/09/19.
@@ -9,7 +9,7 @@
 import Foundation
 import NetworkKit
 
-class NetworkContactDataProvider: ContactDataProviderProtocol {
+class NetworkContactRepository: ContactRepositoryProtocol {
     private let provider = NetworkProvider<ContactRequest>()
     private let jsonDecoder: JSONDecoder = {
         let decoder = JSONDecoder()
@@ -36,11 +36,11 @@ class NetworkContactDataProvider: ContactDataProviderProtocol {
         }
     }
     
-    func fetch(predicate: @escaping (Contact) -> Bool, completion: @escaping (Result<[Contact], Error>) -> Void) {
+    func fetch(criteria: @escaping (Contact) -> Bool, completion: @escaping (Result<[Contact], Error>) -> Void) {
         fetchAll { (result) in
             switch result {
             case .success(let contacts):
-                let filteredContacts = contacts.filter { predicate($0) }
+                let filteredContacts = contacts.filter { criteria($0) }
                 completion(.success(filteredContacts))
             case .failure(let error):
                 completion(.failure(error))

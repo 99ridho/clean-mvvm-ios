@@ -25,9 +25,9 @@ enum ContactUseCaseError: Error {
 }
 
 class ContactUseCase: ContactUseCaseProtocol {
-    private let dataProvider: ContactDataProviderProtocol
+    private let dataProvider: ContactRepositoryProtocol
     
-    init(dataProvider: ContactDataProviderProtocol = NetworkContactDataProvider()) {
+    init(dataProvider: ContactRepositoryProtocol = NetworkContactRepository()) {
         self.dataProvider = dataProvider
     }
     
@@ -43,7 +43,7 @@ class ContactUseCase: ContactUseCaseProtocol {
     }
     
     func fetchContact(byID id: Int, onSuccess: ((Contact) -> Void)?, onError: ((Error) -> Void)?) {
-        dataProvider.fetch(predicate: { $0.id == id }) { (result) in
+        dataProvider.fetch(criteria: { $0.id == id }) { (result) in
             switch result {
             case let .success(contacts):
                 guard let foundContact = contacts.first else {
