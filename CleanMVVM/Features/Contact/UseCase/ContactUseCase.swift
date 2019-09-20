@@ -27,7 +27,7 @@ enum ContactUseCaseError: Error {
 class ContactUseCase: ContactUseCaseProtocol {
     private let dataProvider: ContactDataProviderProtocol
     
-    init(dataProvider: ContactDataProviderProtocol) {
+    init(dataProvider: ContactDataProviderProtocol = NetworkContactDataProvider()) {
         self.dataProvider = dataProvider
     }
     
